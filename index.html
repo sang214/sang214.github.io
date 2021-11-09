@@ -1,23 +1,169 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>홈페이지 만들기</title>
-<style>
-	body { background-color : linen; color : green;
-			margin-left : 40px; margin-right : 40px;}
-	h3 {text-align : center; color : darkred;}
-	hr {height : 10px; border:solid grey; 
-			background-color : grey; }
-	span {color : violet; font-size : 20px; }
-</style>
-</head>
-<body>
-<h3>LEE SANG DON</h3>
-<hr>
-저는 경남 양산 범어중학교에서 근무하고 있는 수학교사입니다. <br>
-아내와 <span>딸 두명과 아들 한명</span>과 함께 살고 있습니다. <br>
-9월에 셋째가 태어나서 시험공부를 제대로 못해서 중간고사 성적은 "<span> 여러분들 보다 낮습니다. </span>" <br>
-웹 프로그래밍 성적은 포기하도록 하겠습니다. 
-</body>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+	<head>
+		<link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+		<title>NOSLab @ CWNU </title>
+		<!-- Using the latest rendering mode for IE -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="canonical" href="/">
+
+		<meta name="author" content="NOSLab - CWNU" />
+		<meta name="description" content="We enjoy practical systems with focuses on high performance, scalability, and reliability. 
+		In particular, we are interested in the broad area of systems software including storage devices, memory, and operating systems.
+		Our research contributions have been published in top-tier systems conferences and journals."/>
+
+		<meta property="og:site_name" content="NOSLab - CWNU" />
+		<meta property="og:type" content="article"/>
+		<meta property="og:title" content="NOSLab - CWNU"/>
+		<meta property="og:url" content="/"/>
+		<meta property="og:description" content="We enjoy practical systems with focuses on high performance, scalability, and reliability. 
+		In particular, we are interested in the broad area of systems software including storage devices, memory, and operating systems.
+		Our research contributions have been published in top-tier systems conferences and journals."/>
+
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="/theme/css/bootstrap-4.3.1.min.css" type="text/css"/>
+		<link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+		<link href="/theme/css/pygments/native.css" rel="stylesheet">
+		<link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+		<link rel="stylesheet" href="/theme/css/custom.css">
+	</head>
+
+	<!-- ######################################################################################################################################### -->
+	<!-- ######################################################################################################################################### -->
+	<!-- ######################################################################################################################################### -->
+	<body>
+		<!-- Menu -->
+		<div id="menu"></div>
+		<!-- End of Menu -->
+
+		<!-- Content Container -->
+		<br>
+		<br>
+		<br>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9">
+					<section id="content" class="body">
+						<div class="entry-content">
+
+							<!-- ######################################################################################################################################### -->
+							<!-- ######################################################################################################################################### -->
+
+							<h3>Next-generation Operating Systems Lab</h3>
+
+							<p>We enjoy practical systems with focuses on high performance, scalability, and reliability. 
+							In particular, we are interested in the broad area of systems software including operating systems and artificial intelligence (AI) systems.
+							Our research contributions have been published in top-tier systems conferences and journals.</p>
+							<p>To facilitate your successful settlement in the NOSLab, you are encouraged to check the starting guide 
+							<a title="Slide" href="assets/pdfs/starting_guide.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> </a></p>
+
+							<h5>Research Interests</h5>
+							<ul>
+								<li>Operating Systems</li>
+								<li>AI for System / System for AI</li>
+								<li>Key-Value Store / NoSQL Database</li>
+								<li>Large-scale and Supercomputing Systems</li>
+							</ul>
+						</div>
+					</section>
+				</div>
+
+				<!-- Sidebar -->
+				<div class="col-sm-3" id="sidebar">
+					<div id="sidebar"></div>
+				</div>
+
+				<!-- End Sidebar -->            
+			</div>
+		</div>
+
+
+
+
+		<!-- ######################################################################################################################################### -->
+		<!-- ######################################################################################################################################### -->
+		<!-- NEWS -->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="entry-content">
+
+						<h3>Latest News</h3>
+						<!-- ######################################################################################################################################### -->
+						<!-- ######################################################################################################################################### -->
+
+						<div id=latestNews></div>
+
+
+
+					</div>
+				</div>
+			</div>
+
+			<!-- view more ################################################################################################################################## -->
+			<center>
+				<div class="card more" style="background-color:rgba(0,0,0,0.9)">
+					<div class="card__content">
+						<div class="card__title">
+							<a class="sidebar-a" href="https://noslab.github.io/pages/news.html"><h6><i class="fa fa-plus" aria-hidden="true"></i> More</h6></a>
+						</div>
+					</div>
+				</div>
+			</center>
+			<!-- view more ################################################################################################################################## -->
+
+
+			<!-- END NEWS -->
+
+
+			<!-- ######################################################################################################################################### -->
+			<!-- ######################################################################################################################################### -->
+
+
+			<footer>
+				<div class="container">
+					<hr>
+					<div class="row">
+						<div class="col-sm-10">&copy; NOSLab</div>
+						<div class="col-sm-2"><p class="pull-right"><a href="#"><i class="fa fa-arrow-circle-o-up"></i><span class="icon-label">Back to top</span></a></p></div>
+					</div>
+				</div>
+			</footer>
+
+			<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+			<script src="/pages/news/maxNewsCnt.js"></script>
+			<script type="text/javascript">
+
+				$(document).ready(function(){
+									$("#menu").load("/menu.html")
+									$("#sidebar").load("/sidebar.html")
+									$("#1").load("/pages/1.html")
+									$("#2").load("/pages/1.html")
+
+									$('#latestNews').append('<div id="news0" class="card proj" style="background-color:rgba(0,0,0,0.9)"></div>')
+									$('#news0').load('/pages/news/news0.html') 
+
+									for (newsIndex = maxNewsCnt; newsIndex > maxNewsCnt - 5; newsIndex--) {
+														$('#latestNews').append('<div id="news'+newsIndex+'" class="card proj"></div>')
+														$('#news'+newsIndex).load('/pages/news/news'+newsIndex+'.html') 
+													}
+
+								});
+			</script>   
+
+			<script src="/theme/js/jquery.min.js"></script>
+
+			<!-- Include all compiled plugins (below), or include individual files as needed -->
+			<script src="/theme/js/bootstrap.min.js"></script>
+
+			<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+			<script src="/theme/js/respond.min.js"></script>
+
+
+	</body>
 </html>
