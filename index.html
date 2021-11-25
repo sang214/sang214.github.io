@@ -1,169 +1,138 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
-	<head>
-		<link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
-		<title>NOSLab @ CWNU </title>
-		<!-- Using the latest rendering mode for IE -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+<head><title>자기 소개</title>
+<style>
+h3, li {/*태그 이름 셀렉터*/color:brown;}
+div>div>strong{/*자식 셀렉터*/background:yellow;}
+ul strong {/*자손 셀렉터*/color:dodgerblue;}
+.warning {/*class 셀렉터*/color:red;}
+body.main {/*class 셀렉터*/background:aliceblue;} 
+#list {/*id 셀렉터*/background:mistyrose;}
+#list span{/* 자손 셀렉터*/color:forestgreen;}
+h3:first-letter {/* 가상 클래스 셀렉터*/color:red;} 
+li:hover{/* 가상 클래스 셀렉터*/background:yellowgreen;}
+td {
+	text-align : right;
+	padding-left : 5px;
+	padding-right : 5px;
+}
+</style>
+<script>
+function draw() {
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
 
-		<link rel="canonical" href="/">
+	var x = document.getElementById("x").value;
+	var y = document.getElementById("y").value;
+	var width = document.getElementById("width").value;
+	var height = document.getElementById("height").value;
+	var lineWidth = document.getElementById("lineWidth").value;
+	var strokeStyle = document.getElementById("strokeStyle").value;	
+	context.beginPath();
+	context.rect(x, y, width, height);
+	context.lineWidth = lineWidth;
+	context.strokeStyle = strokeStyle;
+	context.stroke();
+}
+function erase() {
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+	context.clearRect(0, 0, canvas.width, canvas.height);
+}
+function calc() {
+	var total = 0;
+	var qArray = document.getElementsByClassName("question");
+	var aArray = document.getElementsByClassName("answer");
+	for(i=0; i<qArray.length; i++) {
+		var question = qArray[i].innerHTML;
+		var correctAnswer = Math.floor(eval(question));
+		var userAnswer = aArray[i].value;
+		if(userAnswer=="" || isNaN(userAnswer)) {// 답이 없거나 문자가 입력된 경우
+			total += 0;
+			qArray[i].style.textDecoration = "line-through";
+		}
+		else if(parseInt(userAnswer) == correctAnswer) { // 답이 맞는 경우
+			total += 1;
+			qArray[i].style.textDecoration = "none"; // 혹시 이전에 틀린 문제에 다시 답을 하고 채점버튼을 누르는 경우를 위해
+		}
+		else {// 답이 틀린 경우
+			total += 0;
+			qArray[i].style.textDecoration = "line-through";
+		}
+	}
+	document.getElementById("score").innerHTML = total;
+}
 
-		<meta name="author" content="NOSLab - CWNU" />
-		<meta name="description" content="We enjoy practical systems with focuses on high performance, scalability, and reliability. 
-		In particular, we are interested in the broad area of systems software including storage devices, memory, and operating systems.
-		Our research contributions have been published in top-tier systems conferences and journals."/>
-
-		<meta property="og:site_name" content="NOSLab - CWNU" />
-		<meta property="og:type" content="article"/>
-		<meta property="og:title" content="NOSLab - CWNU"/>
-		<meta property="og:url" content="/"/>
-		<meta property="og:description" content="We enjoy practical systems with focuses on high performance, scalability, and reliability. 
-		In particular, we are interested in the broad area of systems software including storage devices, memory, and operating systems.
-		Our research contributions have been published in top-tier systems conferences and journals."/>
-
-		<!-- Bootstrap -->
-		<link rel="stylesheet" href="/theme/css/bootstrap-4.3.1.min.css" type="text/css"/>
-		<link href="/theme/css/font-awesome.min.css" rel="stylesheet">
-
-		<link href="/theme/css/pygments/native.css" rel="stylesheet">
-		<link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
-		<link rel="stylesheet" href="/theme/css/custom.css">
-	</head>
-
-	<!-- ######################################################################################################################################### -->
-	<!-- ######################################################################################################################################### -->
-	<!-- ######################################################################################################################################### -->
-	<body>
-		<!-- Menu -->
-		<div id="menu"></div>
-		<!-- End of Menu -->
-
-		<!-- Content Container -->
-		<br>
-		<br>
-		<br>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-9">
-					<section id="content" class="body">
-						<div class="entry-content">
-
-							<!-- ######################################################################################################################################### -->
-							<!-- ######################################################################################################################################### -->
-
-							<h3>Next-generation Operating Systems Lab</h3>
-
-							<p>We enjoy practical systems with focuses on high performance, scalability, and reliability. 
-							In particular, we are interested in the broad area of systems software including operating systems and artificial intelligence (AI) systems.
-							Our research contributions have been published in top-tier systems conferences and journals.</p>
-							<p>To facilitate your successful settlement in the NOSLab, you are encouraged to check the starting guide 
-							<a title="Slide" href="assets/pdfs/starting_guide.pdf"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> </a></p>
-
-							<h5>Research Interests</h5>
-							<ul>
-								<li>Operating Systems</li>
-								<li>AI for System / System for AI</li>
-								<li>Key-Value Store / NoSQL Database</li>
-								<li>Large-scale and Supercomputing Systems</li>
-							</ul>
-						</div>
-					</section>
-				</div>
-
-				<!-- Sidebar -->
-				<div class="col-sm-3" id="sidebar">
-					<div id="sidebar"></div>
-				</div>
-
-				<!-- End Sidebar -->            
-			</div>
-		</div>
-
-
-
-
-		<!-- ######################################################################################################################################### -->
-		<!-- ######################################################################################################################################### -->
-		<!-- NEWS -->
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="entry-content">
-
-						<h3>Latest News</h3>
-						<!-- ######################################################################################################################################### -->
-						<!-- ######################################################################################################################################### -->
-
-						<div id=latestNews></div>
-
-
-
-					</div>
-				</div>
-			</div>
-
-			<!-- view more ################################################################################################################################## -->
-			<center>
-				<div class="card more" style="background-color:rgba(0,0,0,0.9)">
-					<div class="card__content">
-						<div class="card__title">
-							<a class="sidebar-a" href="https://noslab.github.io/pages/news.html"><h6><i class="fa fa-plus" aria-hidden="true"></i> More</h6></a>
-						</div>
-					</div>
-				</div>
-			</center>
-			<!-- view more ################################################################################################################################## -->
-
-
-			<!-- END NEWS -->
-
-
-			<!-- ######################################################################################################################################### -->
-			<!-- ######################################################################################################################################### -->
-
-
-			<footer>
-				<div class="container">
-					<hr>
-					<div class="row">
-						<div class="col-sm-10">&copy; NOSLab</div>
-						<div class="col-sm-2"><p class="pull-right"><a href="#"><i class="fa fa-arrow-circle-o-up"></i><span class="icon-label">Back to top</span></a></p></div>
-					</div>
-				</div>
-			</footer>
-
-			<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-			<script src="/pages/news/maxNewsCnt.js"></script>
-			<script type="text/javascript">
-
-				$(document).ready(function(){
-									$("#menu").load("/menu.html")
-									$("#sidebar").load("/sidebar.html")
-									$("#1").load("/pages/1.html")
-									$("#2").load("/pages/1.html")
-
-									$('#latestNews').append('<div id="news0" class="card proj" style="background-color:rgba(0,0,0,0.9)"></div>')
-									$('#news0').load('/pages/news/news0.html') 
-
-									for (newsIndex = maxNewsCnt; newsIndex > maxNewsCnt - 5; newsIndex--) {
-														$('#latestNews').append('<div id="news'+newsIndex+'" class="card proj"></div>')
-														$('#news'+newsIndex).load('/pages/news/news'+newsIndex+'.html') 
-													}
-
-								});
-			</script>   
-
-			<script src="/theme/js/jquery.min.js"></script>
-
-			<!-- Include all compiled plugins (below), or include individual files as needed -->
-			<script src="/theme/js/bootstrap.min.js"></script>
-
-			<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-			<script src="/theme/js/respond.min.js"></script>
-
-
-	</body> 
-</html> 
+function makeExpression() {
+	var qArray = document.getElementsByClassName("question");
+	var aArray = document.getElementsByClassName("answer");
+	for(i=0; i<qArray.length; i++) {
+		var number1 = Math.floor(Math.random()*20)+1;
+		var number2 = Math.floor(Math.random()*20)+1; // 결코 0이 될 수 없음
+		var op = Math.floor(Math.random()*4);
+		var operator="+"; // 디폴트
+		switch(op) {
+			case 0 : operator = "+"; break;
+			case 1 : operator = "-"; break;
+			case 2 : operator = "*"; break;
+			case 3 : operator = "/"; break;
+		}
+		qArray[i].innerHTML = number1 + operator + number2;
+		qArray[i].style.textDecoration = "none";
+		
+		aArray[i].value=""; // 답 입력 난 지우기
+		document.getElementById("score").innerHTML = 0; // 맞은 문항 수 지우기
+	}
+}
+</script>
+</head>
+<body class="main">
+<h3>홈페이지 만들기</h3><hr>
+<div> 
+<div>저의 홈페이지에 오신 분들에게 감사드립니다. 저는 창원대학교 인공지능 빅데이터 석사과정을 공부하고 있는 <strong>이상돈</strong>입니다.</div> <ul id="list">
+<li><span>범어중학교에서 수학을 지도하고 있습니다.</span></li>
+<li><strong>두명의 딸과 2021년 9월에 태어난 아들 이렇게 3명의 자식이 있습니다.</strong></li>
+<li>집에서 육아를 해야 해서 공부할 시간이 너무도 부족합니다. </li>
+<li>더 열심히 하고 싶은 마음은 있는데 여유가 너무 없어서 아쉬운 마음뿐입니다.</li> 
+</ul
+>
+<div class="warning">창원대학교 인공지능빅데이터 2021년 입학생 여러분 함께 많이 배워서 모두에게 도움이 되었으면 좋겠습니다.</div>
+</div>
+<body onload="makeExpression()">
+<h3>산수 문제를 풀어 봅시다.</h3>
+자동으로 문제가 만들어집니다. 답 입력 후  채점 버튼을 누르세요.
+다시 버튼을 누르면 새로운 문제가 출력됩니다. <나누기 결과는 가우스함수 값으로 입력, 가우스 함수란? 크지 않은 최대 정수>
+<div id="clock" onclick="controlClock()"></div>
+<hr>
+<form>
+<table>
+<tr><td class="question"></td><td><input class="answer" type="text" size="8"></td></tr>
+<tr><td class="question"></td><td><input class="answer" type="text" size="8"></td></tr>
+<tr><td class="question"></td><td><input class="answer" type="text" size="8"></td></tr>
+<tr><td class="question"></td><td><input class="answer" type="text" size="8"></td></tr>
+<tr><td><button type="button" onclick="calc()">채점</button></td>
+	<td><span id="score">0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button type="button" onclick="makeExpression()">다시</button>
+	</td>
+</tr>
+</table>
+</form>
+</body>
+</body>
+<h3>폼으로 사각형 그리기</h3>
+<hr>
+<form>
+<table>
+<tr><td><label>x <input id="x" type="number" value="10"></label></td>
+	<td><label>y <input id="y" type="number" value="10"></label></td></tr>
+<tr><td><label>width <input id="width" type="number" value="100"></label></td>
+	<td><label>height <input id="height" type="number" value="100"></label></td></tr>
+<tr><td><label>선굵기 <input id="lineWidth" type="number" value="1"></label></td>
+	<td><label>선색 <input id="strokeStyle" type="color" value="#000000"></label></td></tr>
+<tr><td><label><button type="button" onclick="draw()">그리기</button></label></td>
+	<td><button type="button" onclick="erase()">지우기</button></td></tr>
+</table>
+</form>
+<canvas id="myCanvas" width="500" height="200" 
+        style="background-color:aliceblue"></canvas>
+</html>
